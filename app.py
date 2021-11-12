@@ -8,18 +8,15 @@ app = Flask(__name__)
     #app.db = client.recommendation
 
 @app.route("/")
-def home():
-    #if request.method == "POST":
-    #    entry_content = request.form.get("content")
-    #    formatted_date = datetime.datetime.today().strftime("%Y-%m-%d")
-    #    app.db.entries.insert({"content": entry_content, "date": formatted_date})
-        
-    #entries_with_date = [
-    #    (
-    #        entry["content"],
-    #        entry["date"],
-    #        datetime.datetime.strptime(entry["date"], "%Y-%m-%d").strftime("%b %d")
-    #    )
-    #    for entry in app.db.entries.find({})
-    #]
-    return render_template("home.html")
+def home():  
+    kwargs = {
+        "coinjar_buy_bit": 128,
+        "coinjar_sell_bit": 130,
+        "paybis_buy_bit": 120,
+        "paybis_sell_bit": 121,
+        "coinjar_buy_eth": 128,
+        "coinjar_sell_eth": 130,
+        "paybis_buy_eth": 120,
+        "paybis_sell_eth": 121,
+    }
+    return render_template("home.html",**kwargs)

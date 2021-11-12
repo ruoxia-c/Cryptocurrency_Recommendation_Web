@@ -53,16 +53,20 @@ body {
   max-width: 450px;
   margin: 0 auto;
   padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .form {
   display: flex;
-  padding: 1rem 2rem;
+  padding: 1rem;
   border: 2px solid #000000;
   flex-direction: row;
   box-sizing: border-box;
   border-radius: 8px;
   justify-content:space-around;
+  column-gap: 10px;
 }
 
 .form_title {
@@ -75,6 +79,7 @@ body {
   background: #a9f1eb;
   border: 1px solid #000000;
   border-radius: 8px;
+  padding: 1rem;
 }
 
 .form_right {
@@ -83,6 +88,12 @@ body {
   background: #a9f1eb;
   border: 1px solid #000000;
   border-radius: 8px;
+  padding: 1rem;
+}
+
+.form_price {
+  display: flex;
+  flex-direction: column;
 }
 
 .table_group {

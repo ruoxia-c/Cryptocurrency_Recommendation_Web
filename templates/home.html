@@ -28,15 +28,15 @@
           <form class="table_group">
             <a class="exchange" href="https://www.coinjar.com/global/buy/bitcoin"> CoinJar</a>
             <div class = "price">
-              <a>Buy: coinjar sell</a>
-              <a>Sell: coinjar buy</a>
+              <a>Buy: $ {{ coinjar_buy_bit }}</a>
+              <a>Sell: $ {{ coinjar_sell_bit }}</a>
             </div>
           </form>
           <form class="table_group">
             <a class="exchange" href="https://paybis.com/price/"> paybis</a>
             <div class = "price">
-              <a>Buy: paybis sell</a>
-              <a>Sell: paybis buy</a>
+              <a>Buy: $ {{ paybis_buy_bit }}</a>
+              <a>Sell: $ {{ paybis_sell_bit }}</a>
             </div>
           </form>
         </div>
@@ -45,9 +45,17 @@
         <h2 class ="form_title">Best Price</h2>
         <form class = "form_right">
           <a class = "best_title"> Buy</a>
-          <a class="exchange" href="https://paybis.com/price/"> paybis</a>
+          {% if paybis_buy_bit >= coinjar_buy_bit %}
+             <a class="exchange" href="https://www.coinjar.com/global/buy/bitcoin">Coinjar: $ {{ coinjar_buy_bit }}</a>
+          {% else %}
+             <a class="exchange" href="https://paybis.com/price/">Paybis: $ {{ paybis_buy_bit }}</a>
+          {% endif %}
           <a class = "best_title"> Sell</a>
-          <a class="exchange" href="https://paybis.com/price/"> paybis</a>
+          {% if coinjar_sell_bit >= paybis_sell_bit %}
+             <a class="exchange" href="https://www.coinjar.com/global/buy/bitcoin">Coinjar: $ {{ coinjar_buy_bit }}</a>
+          {% else %}
+             <a class="exchange" href="https://paybis.com/price/">Paybis: $ {{ paybis_buy_bit }}</a>
+          {% endif %}
         </form> 
       </div>  
     </section>
@@ -56,14 +64,18 @@
         <h1 class ="form_title">Ethereum Price</h1>
         <div class="form_left">
           <form class="table_group">
-            <a class="exchange" href="https://www.coinjar.com/global/buy/ethereum""> CoinJar</a>
-            <a class = "price">Buy: coinjar sell</a>
-            <a class = "price">Sell: coinjar buy</a>
+            <a class="exchange" href="https://www.coinjar.com/global/buy/ethereum"> CoinJar</a>
+            <div class = "price">
+              <a class = "price">Buy: $ {{ coinjar_buy_eth }}</a>
+              <a class = "price">Sell: $ {{ coinjar_buy_eth }}</a>
+            </div>
           </form>
           <form class="table_group">
             <a class="exchange" href="https://paybis.com/price/"> paybis</a>
-            <a class = "price">Buy: paybis sell</a>
-            <a class = "price">Sell: paybis buy</a>
+            <div class = "price">
+              <a>Buy: $ {{ paybis_buy_eth }}</a>
+              <a>Sell: $ {{ paybis_sell_eth }}</a>
+            </div>
           </form>
         </div>
       </div>
@@ -71,9 +83,17 @@
         <h2 class ="form_title">Best Price</h2>
         <form class = "form_right">
           <a class = "best_title"> Buy</a>
-          <a class="exchange" href="https://paybis.com/price/"> paybis</a>
+          {% if paybis_buy_eth >= coinjar_buy_eth %}
+             <a class="exchange" href="https://www.coinjar.com/global/buy/ethereum">Coinjar: $ {{ coinjar_buy_eth }}</a>
+          {% else %}
+             <a class="exchange" href="https://paybis.com/price/">Paybis: $ {{ paybis_buy_eth }}</a>
+          {% endif %}
           <a class = "best_title"> Sell</a>
-          <a class="exchange" href="https://paybis.com/price/"> paybis</a>
+          {% if coinjar_sell_eth >= paybis_sell_eth %}
+             <a class="exchange" href="https://www.coinjar.com/global/buy/ethereum">Coinjar: $ {{ coinjar_buy_eth }}</a>
+          {% else %}
+             <a class="exchange" href="https://paybis.com/price/">Paybis: $ {{ paybis_buy_eth }}</a>
+          {% endif %}
         </form> 
       </div>  
     </section>
